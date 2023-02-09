@@ -5,7 +5,7 @@ console.log(galleryItems);
 
 
 
-const markup = galleryItems.map(item=> `<div class="gallery__item">
+const markup = galleryItems.map(item => `<div class="gallery__item">
   <a class="gallery__link" href="${item.original}">
     <img
       class="gallery__image"
@@ -33,22 +33,22 @@ function onGalleryClick(event) {
     function closeModal(event) {
         
         if (event.code === "Escape") {
-            instance.close();
+            modal.close();
         }
         
     }
-const instance = basicLightbox.create(`
+const modal = basicLightbox.create(`
 	<img src="${event.target.dataset.source}">
 `, {
-    onShow: instance => {
+    onShow: modal => {
         window.addEventListener('keydown', closeModal)
 
     },
-    onClose: instance => {
+    onClose: modal => {
         window.removeEventListener('keydown', closeModal)
 
     }
 })
-    instance.show();
+    modal.show();
 }
     
